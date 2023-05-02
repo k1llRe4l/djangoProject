@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 
 
 class BlogList(ListView):
+    paginate_by = 5
     model = Post
     template_name = 'home.html'
 
@@ -29,9 +30,4 @@ def post_count(request):
     return {'post_count': count}
 
 
-def blog(request):
-    post_list = Post.objects.all()
-    paginator = Paginator(post_list, 5)     # limit to 5 posts per page
-    page = request.GET.get('page')
-    posts = paginator.get_page(page)
-    return render(request, 'home.html', {'posts': posts})
+
