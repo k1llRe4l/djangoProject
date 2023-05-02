@@ -79,12 +79,12 @@
     {% endblock content %}
 
     <div class="pagination"; style="position: fixed; bottom: 15px; left: 50px">
-    <span class="step-links">
+        <span class="step-links">
         <div style="position: fixed; bottom: 15px; right: 50px">
             <span style="color: aliceblue">{{ post_count }} постов всего</span>
         </div>
         {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}">Пред.</a>
+            <button><a href="?page={{ page_obj.previous_page_number }}">Пред.</a></button>
         {% endif %}
 
         <span class="current">
@@ -92,7 +92,7 @@
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">След.</a>
+            <button><a href="?page={{ page_obj.next_page_number }}">След.</a></button>
         {% endif %}
     </span>
     </div>
