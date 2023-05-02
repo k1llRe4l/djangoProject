@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 
 
 class BlogList(ListView):
-    paginate_by = 5
+    paginate_by = 1
     model = Post
     template_name = 'home.html'
 
