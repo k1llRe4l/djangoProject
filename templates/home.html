@@ -78,8 +78,23 @@
         {% endfor %}
     {% endblock content %}
 
-    <div style="position: fixed; bottom: 0; right: 50px">
-        <p><span style="color: aliceblue">{{ post_count }} постов всего</span></p>
+    <div class="pagination"; style="position: fixed; bottom: 15px; left: 50px">
+        <span class="step-links">
+        <div style="position: fixed; bottom: 15px; right: 50px">
+            <span style="color: aliceblue">{{ post_count }} постов всего</span>
+        </div>
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><button type="button" class="btn btn-secondary">Пред.</button></a>
+        {% endif %}
+
+        <span class="current">
+            <span style="color: aliceblue">Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"><button type="button" class="btn btn-secondary">След.</button></a>
+        {% endif %}
+    </span>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
